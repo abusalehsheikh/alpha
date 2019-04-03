@@ -23,7 +23,7 @@
 
 
 
-                        <a class="list-group-item btn btn-outline-info h5 mt-2" href="/companies/{{$projects->id}}">{{$project->name}}</a>
+                        <a class="list-group-item btn btn-outline-info h5 mt-2" href="/projects/{{$project->id}}">{{$project->name}}</a>
 
                     @endforeach
 

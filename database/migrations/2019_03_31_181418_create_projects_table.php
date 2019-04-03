@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->longText('description')->nullable();
-            $table->integer('company_id')->unsigned()->nullable();
+            $table->integer('company_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->integer('days')->unsigned()->nullable();
 

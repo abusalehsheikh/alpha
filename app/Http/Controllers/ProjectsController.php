@@ -87,20 +87,25 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()){
-            $project = Project::create([
-                'name'  => $request->input('name'),
-                'description'  => $request->input('description'),
-                'company_id'  => $request->input('company_id'),
-                'user_id'  => Auth::user()->id,
-            ]);
 
-            if ($project){
-                return redirect()->route('projects.show', ['project' => $project->id])
-                    ->with('success', 'Project created successfully !');
-            }
+
+            if ($request->input('company_id')) {
+                $project = Project::create([
+                        'name'  => $request->input('name'),
+                        'description'  => $request->input('description'),
+                        'company_id'  => $request->input('company_id'),
+                        'user_id'  => Auth::user()->id,
+                    ]);
+
+                    if ($project){
+                            return redirect()->route('projects.show', ['project' => $project->id])
+                                ->with('success', 'Project created successfully !');
+                        }
+                }
+            return back()->withInput()->with('errors', 'Error creating new Project ! * Company must be selected');
         }
+        return back()->withInput()->with('errors', 'Error creating new Project !');
 
-        return back()->withInput()->with('error', 'Error creating new Project !');
     }
 
     /**

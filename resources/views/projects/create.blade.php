@@ -38,8 +38,8 @@
 
                             @if( $companies != null)
                             <div class="form-group">
-                                <label for="project-company">Select Company</label>
-                                <select name="company_id" id="project-company" class="form-control">
+                                <label for="project-company">Select Company</label><span class="required">*</span>
+                                <select name="company_id" id="project-company" class="form-control" required>
                                     @foreach($companies as $company)
                                     <option value="{{ $company->id }}">{{ $company->name }}</option>
                                         @endforeach
@@ -67,7 +67,9 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            <a class="btn btn-outline-info mt-2" href="/projects">My Project</a>
+                            <a class="btn btn-outline-info mt-2" href="/projects"><i class="fas fa-briefcase"></i> My Project</a>
+                            <a class="btn btn-outline-info mt-2" href="/companies"><i class="fas fa-building"></i> My Company</a>
+                            <a class="btn btn-outline-success mt-2" href="/companies/create"><i class="fas fa-plus-circle"></i> Create Company</a>
                         </ul>
                     </div>
                 </div>
