@@ -10,7 +10,7 @@ This is a project management system built with Laravel
 3. Copy .env file : `copy .env.example .env`
 3. Generate app key : `php artisan key:generate`
 4. Run migration : `php artisan migrate`
-5. Signup a user and 
+5. Register a user and 
    Enjoy
 
 ## Follow me
@@ -23,7 +23,7 @@ This is a project management system built with Laravel
 
 ## Contacts
 
-* You can reach the me on `abusalehpro@gmail.com`, I'd like to join your team.
+You can reach the me on `abusalehpro@gmail.com`, I'd like to join your team.
 
 
 ## License

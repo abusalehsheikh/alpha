@@ -3,24 +3,36 @@
 
 @section('content')
 
-<div class="col-3 offset-4">
-    <div class="card ">
-        <div class="card-header bg-primary text-white h3">
-            <i class="fas fa-briefcase"></i>  Projects <a class="btn btn-success float-right" href="/projects/create"><i class="fas fa-plus-circle"></i>  Create New</a>
-        </div>
-        <div class="card-body">
-            <ul class="list-group">
+    <div class="col-sm-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+        <div class="card ">
+            <div class="card-header bg-primary text-white h3">
+                <i class="fas fa-building"></i>
+                Projects
+                <a class="btn btn-success float-right" href="/projects/create"><i class="fas fa-plus-circle"></i>  Create New</a>
 
-                @foreach($projects as $project)
+            </div>
+            <div class="card-body">
 
-                    <a class="list-group-item btn btn-outline-info h5 mt-2" href="/projects/{{$project->id}}">{{$project->name}}</a>
+                <ul class="list-group">
 
-                @endforeach
+                    @if(empty($projects ->count() > 0))
+                        <p class="h5 text-danger">You have no project yet !</p>
+                    @endif
 
-            </ul>
+                    @foreach($projects as $project)
 
+
+
+                        <a class="list-group-item btn btn-outline-info h5 mt-2" href="/companies/{{$projects->id}}">{{$project->name}}</a>
+
+                    @endforeach
+
+
+                </ul>
+
+
+            </div>
         </div>
     </div>
-</div>
 
 @endsection

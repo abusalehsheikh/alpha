@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Collection;
 
 class CompaniesController extends Controller
 {
@@ -20,7 +21,13 @@ class CompaniesController extends Controller
 
             $companies = Company::where('user_id', Auth::user()->id)->get();
 
+//            if (!Company::where('user_id', Auth::user()->id)->exists()) {
+//                return view('companies.index', ['companies' => $companies])-with('success','no');
+//            }
+
+
             return view('companies.index', ['companies' => $companies]);
+
         }
 
         return view('auth.login');
